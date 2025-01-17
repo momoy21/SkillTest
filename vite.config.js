@@ -9,3 +9,14 @@ export default defineConfig({
         }),
     ],
 });
+
+export default defineConfig(({ command }) => {
+    return {
+        build: {
+            outDir: 'dist',
+        },
+        server: {
+            hmr: command !== 'build',
+        },
+    };
+});
